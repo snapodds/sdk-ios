@@ -1,0 +1,26 @@
+framework module SnapscreenFramework {
+    umbrella header "SnapscreenFramework.h"
+
+    export *
+
+    module * { export * }
+
+    link framework "UIKit"
+    link framework "CoreMedia"
+    link framework "AVFoundation"
+    link framework "Foundation"
+
+
+    explicit module SnapscreenFramework_Private {
+        header "SnapscreenFingerprintCalculator.h"
+        header "SnapscreenQuadrangleDetector.h"
+        header "SnapscreenUtil.h"
+        
+        export *
+  }
+}
+
+module SnapscreenFramework.Swift {
+    header "SnapscreenFramework-Swift.h"
+    requires objc
+}

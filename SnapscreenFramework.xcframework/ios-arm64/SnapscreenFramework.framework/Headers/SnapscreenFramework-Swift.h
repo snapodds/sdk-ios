@@ -213,6 +213,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
 @class NSCoder;
 @class NSNumber;
 @class NSString;
@@ -239,6 +240,8 @@ SWIFT_CLASS("_TtC19SnapscreenFramework18SnapViewController")
 @property (nonatomic, readonly) UIInterfaceOrientationMask supportedInterfaceOrientations;
 /// :nodoc:
 @property (nonatomic, readonly) BOOL shouldAutorotate;
+/// :nodoc:
+@property (nonatomic, readonly) UIInterfaceOrientation preferredInterfaceOrientationForPresentation;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 

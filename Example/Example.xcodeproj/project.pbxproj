@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B059ADF27568BA100086F88 /* Snapscreen in Frameworks */ = {isa = PBXBuildFile; productRef = 5B059ADE27568BA100086F88 /* Snapscreen */; };
+		5B630F3F27A5530600E1272A /* Snapscreen in Frameworks */ = {isa = PBXBuildFile; productRef = 5B630F3E27A5530600E1272A /* Snapscreen */; };
 		5BB24AB8275686600094EF14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB24AB7275686600094EF14 /* AppDelegate.swift */; };
 		5BB24ABA275686600094EF14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB24AB9275686600094EF14 /* SceneDelegate.swift */; };
 		5BB24ABC275686600094EF14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB24ABB275686600094EF14 /* ViewController.swift */; };
@@ -32,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B059ADF27568BA100086F88 /* Snapscreen in Frameworks */,
+				5B630F3F27A5530600E1272A /* Snapscreen in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 			);
 			name = Example;
 			packageProductDependencies = (
-				5B059ADE27568BA100086F88 /* Snapscreen */,
+				5B630F3E27A5530600E1272A /* Snapscreen */,
 			);
 			productName = FrameworkSample;
 			productReference = 5BB24AB4275686600094EF14 /* Example.app */;
@@ -117,7 +117,7 @@
 			);
 			mainGroup = 5BB24AAB275686600094EF14;
 			packageReferences = (
-				5B059ADD27568BA100086F88 /* XCRemoteSwiftPackageReference "snapscreen-ios" */,
+				5B630F3D27A5530600E1272A /* XCRemoteSwiftPackageReference "sdk-ios" */,
 			);
 			productRefGroup = 5BB24AB5275686600094EF14 /* Products */;
 			projectDirPath = "";
@@ -370,9 +370,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5B059ADD27568BA100086F88 /* XCRemoteSwiftPackageReference "snapscreen-ios" */ = {
+		5B630F3D27A5530600E1272A /* XCRemoteSwiftPackageReference "sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/snapoods/snapscreen-ios.git";
+			repositoryURL = "https://github.com/snapodds/sdk-ios.git";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -381,9 +381,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5B059ADE27568BA100086F88 /* Snapscreen */ = {
+		5B630F3E27A5530600E1272A /* Snapscreen */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5B059ADD27568BA100086F88 /* XCRemoteSwiftPackageReference "snapscreen-ios" */;
+			package = 5B630F3D27A5530600E1272A /* XCRemoteSwiftPackageReference "sdk-ios" */;
 			productName = Snapscreen;
 		};
 /* End XCSwiftPackageProductDependency section */

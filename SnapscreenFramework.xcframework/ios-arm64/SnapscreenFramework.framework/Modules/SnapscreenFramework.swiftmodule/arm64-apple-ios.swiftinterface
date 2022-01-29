@@ -167,6 +167,9 @@ public enum SnapOddsOutcomeType : Swift.String {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var shouldAutorotate: Swift.Bool {
     @_Concurrency.MainActor(unsafe) @objc get
   }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var preferredInterfaceOrientationForPresentation: UIKit.UIInterfaceOrientation {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
   @objc deinit
 }
 extension SnapscreenFramework.SnapViewController : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -208,6 +211,7 @@ public protocol SnapscreenSnapDelegate : AnyObject {
   public var snapProgressText: Swift.String
   public var snapProgressTextColor: UIKit.UIColor
   public var snapErrorGeneralText: Swift.String
+  public var snapErrorConnectionIssueText: Swift.String
   public var snapErrorNoResultsText: Swift.String
   public var snapErrorTextColor: UIKit.UIColor
   @objc deinit

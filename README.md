@@ -1,6 +1,6 @@
 ## Documentation
 
-For the full API documentation go to https://snapodds.github.io/snapscreen-ios
+For the full API documentation go to https://snapodds.github.io/sdk-ios
 
 ## Support
 In case of any questions or problems please contact us at [support@snapscreen.com](mailto:support@snapscreen.com).
@@ -79,6 +79,8 @@ Snapscreen.instance
 In order to snap a TV image and search for Sport event, you need to create and present an instance of **SnapViewController**. You can customize the snap settings by configured the **SnapConfiguration** you pass to the initializer. The **SnapscreenSnapDelegate** will receive a callback once a sport event was successfully snapped.
 
 It is recommended that you present the SnapViewController in a UINavigationController. 
+
+It is also recommended to present and limit the UINavigationController containing a SnapViewController be limited to portrait orientation.
 
 Additionally you need to configure the cancel navigation item if you want to provide the user with the option to cancel the Snap.
 

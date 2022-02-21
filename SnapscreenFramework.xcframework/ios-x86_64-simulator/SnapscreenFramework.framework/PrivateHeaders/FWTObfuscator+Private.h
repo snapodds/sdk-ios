@@ -1,9 +1,5 @@
 //
-//  NSString+reg.h
-//  WTObfuscation
-//
-//  Created by Fabio Gallonetto on 23/01/2014.
-//  Copyright (c) 2014 Future Workshops. All rights reserved.
+// Copyright (c) 2022 Snapscreen Application GmbH <https://snapscreen.com>
 //
 
 #import <Foundation/Foundation.h>

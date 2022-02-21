@@ -1,8 +1,5 @@
 //
-//  SnapscreenFramework.h
-//  SnapscreenFramework
-//
-//  Created by martin on 25.02.21.
+// Copyright (c) 2022 Snapscreen Application GmbH <https://snapscreen.com>
 //
 
 #import <Foundation/Foundation.h>

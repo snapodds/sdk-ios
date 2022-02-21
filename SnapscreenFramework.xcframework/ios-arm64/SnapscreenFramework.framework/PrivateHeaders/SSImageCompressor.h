@@ -1,9 +1,5 @@
 //
-//  SSImageCompressor.h
-//  SnapscreenKit
-//
-//  Created by Tim Chernov on 23/06/15.
-//  Copyright © 2016 Snapscreen Application GmbH. All rights reserved.
+// Copyright (c) 2022 Snapscreen Application GmbH <https://snapscreen.com>
 //
 
 #import <Foundation/Foundation.h>

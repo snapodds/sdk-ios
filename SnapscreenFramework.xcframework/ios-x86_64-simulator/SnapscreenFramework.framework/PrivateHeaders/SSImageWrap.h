@@ -1,9 +1,5 @@
 //
-//  SSImageWrap.h
-//  SnapscreenKit
-//
-//  Created by Tim Chernov on 21/07/15.
-//  Copyright © 2016 Snapscreen Application GmbH. All rights reserved.
+// Copyright (c) 2022 Snapscreen Application GmbH <https://snapscreen.com>
 //
 
 #import <AVFoundation/AVFoundation.h>

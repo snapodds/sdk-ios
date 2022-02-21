@@ -14,11 +14,11 @@
 		</data>
 		<key>Headers/SnapscreenFramework.h</key>
 		<data>
-		+drthxOY93rXn/EpwbMzW6OW7T8=
+		HP9HdTVkqKX3WjIi0bR+AGQ2dZM=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		tdp7Gixwt7JGzD9FjXgU2r9+VzI=
+		xP+wAqtw3IffAdNvp0ydfaM1/tM=
 		</data>
 		<key>Modules/SnapscreenFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/SnapscreenFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ArJOkmJA+/NXkJJy1APWvGhr6k0=
+		JgpTuL4HiisQbaZ6i+I5w1FmC6Q=
 		</data>
 		<key>Modules/SnapscreenFramework.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/SnapscreenFramework.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		ArJOkmJA+/NXkJJy1APWvGhr6k0=
+		JgpTuL4HiisQbaZ6i+I5w1FmC6Q=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -50,51 +50,51 @@
 		</data>
 		<key>PrivateHeaders/FWTObfuscator+Private.h</key>
 		<data>
-		S6lFHSm8DfjnP8Rrj7lOc4VtrFM=
+		2VzycVwoIoIm3CmECj4T6xtZwiY=
 		</data>
 		<key>PrivateHeaders/FWTObfuscator.h</key>
 		<data>
-		bhABaIcPkI4Oo1IV0PXKf1y7kk8=
+		pbR6VH3sHn+1mSHe7ZoU/VXmqOQ=
 		</data>
 		<key>PrivateHeaders/NSString+FWTObfuscation.h</key>
 		<data>
-		8YrlEhHyrx0bnQHB2Kk4Yb78uO8=
+		cBoMYf/Wacuj4bNTzWVNJM8lNjY=
 		</data>
 		<key>PrivateHeaders/SSGeometryUtils.h</key>
 		<data>
-		ZHn14izsch5nj/V5Zad1+q8S1NI=
+		mQ++liisxfTIJV3kKjxrSMkWEkE=
 		</data>
 		<key>PrivateHeaders/SSImageCompressor.h</key>
 		<data>
-		ohtyu004Xbb/TTCM7yyPOJM+SHQ=
+		HYQN3u+OnKK6q2jJy2MuYHc3DXE=
 		</data>
 		<key>PrivateHeaders/SSImageConverter.h</key>
 		<data>
-		vBSNKEr39Oi3+9vKWAjdoUyKkBs=
+		djiKgEs4eCRseXe4XYvh46ZUWH4=
 		</data>
 		<key>PrivateHeaders/SSImageWrap.h</key>
 		<data>
-		Q6pc9H+o76tlA6/D6/BJKYn9PtU=
+		d/XYhqyXNku/8XbHV37q2z1xFqo=
 		</data>
 		<key>PrivateHeaders/SnapscreenCoreUtil.h</key>
 		<data>
-		7wsX/hqM/THUq7WjgvTcrxdbitQ=
+		t2j63FARUBZJtwx2Y1koNjMXUGk=
 		</data>
 		<key>PrivateHeaders/SnapscreenFingerprintCalculator.h</key>
 		<data>
-		RXwFLfXdK9Ewwvp9oT3uEVbLIjI=
+		X0KggbD3mnNPNUogu9f8iPjoBTs=
 		</data>
 		<key>PrivateHeaders/SnapscreenQuadrangleDetector+Private.h</key>
 		<data>
-		mjQqSxoMn2DFub/KRwQfXRc5duc=
+		DN6rOYHXH9428NUlXTop7dxDc/I=
 		</data>
 		<key>PrivateHeaders/SnapscreenQuadrangleDetector.h</key>
 		<data>
-		wDc1YDBtzjPtixM2N1U7nib7zWw=
+		weG+8ucj3CCHcp/ioCq9KJCZnUY=
 		</data>
 		<key>PrivateHeaders/SnapscreenUtil.h</key>
 		<data>
-		6yob3wPsnWE1xdflJGV9tlhlaxg=
+		mqIP6xQx//Mz+XcjegcGWf9sQII=
 		</data>
 		<key>processordata.zip</key>
 		<data>
@@ -121,7 +121,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			31J2UPuzb5eOnbWQF5gW1YhbKSZgVFnOb60fOKGyz4k=
+			PCUIw8dDVrj4qvr6xmpS6cymheSsZmRZZNpO+yqv9qw=
 			</data>
 		</dict>
 		<key>Modules/SnapscreenFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -142,7 +142,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xlCj+lsztfyZRWavvIvRVpmyHAxdlvaw3MwuwdXKQ1Y=
+			RG8jtOQXYE2VPjjkVb5UHVEGA0dqc5laoKzSBfeGIi0=
 			</data>
 		</dict>
 		<key>Modules/SnapscreenFramework.swiftmodule/x86_64.swiftdoc</key>
@@ -163,7 +163,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xlCj+lsztfyZRWavvIvRVpmyHAxdlvaw3MwuwdXKQ1Y=
+			RG8jtOQXYE2VPjjkVb5UHVEGA0dqc5laoKzSBfeGIi0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -177,84 +177,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EPYBTHMao4Jd8wJTTaHFtDeYKmqnmlJ97Jf3JI+keX4=
+			OwP4LObf0hIET+0yZwZRxzlGwkOIvTG6miLPovgvzdQ=
 			</data>
 		</dict>
 		<key>PrivateHeaders/FWTObfuscator.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lOPkirv/XXHBa+Uq39lr+QYV9s9sOvDBhzwK+YZ2HPc=
+			T+E2t5N8Srjf0xaBdS4tJwdc8K9aKOS2NHh/570DAOk=
 			</data>
 		</dict>
 		<key>PrivateHeaders/NSString+FWTObfuscation.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qAtrxUv5Z0UL/W83N7bxWcVbXl/aLBHOGkK2U1nIWUg=
+			JKR1ovXmvRvJ1XMNKgqTuHmL70BfgmZrUjW8f8s19A8=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SSGeometryUtils.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			quUdEhMZAZM/JqpYsOJIUTKwvypWNeS96pN/HF6A3uQ=
+			g5ENm7+UFQ1TrsATK5ludlUrw0TAsmiQVmmYlY4pvQM=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SSImageCompressor.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MHnkmTDsTszj/DbtOCZIfKy2b7sDiHNgF6Aut4pnAug=
+			iTAnFLqvvm3Y1YD0CK0/2ZzujJz7Y8jLKX6xO/iZxJ4=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SSImageConverter.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qX0mTQOzZK38HUlEG/rSYePjYJ5AdcifrQn8AqvFH90=
+			jJs6nrHUvxwT6OMoGyZoQXWhg1pQvpwpsx5I+wVdwF8=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SSImageWrap.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Le2xeA9idIWR7qVot3Jx0zbqD6hd1lvTTl9DNVd+dtg=
+			bK3HHSRv6sLV1NOYydBsQRKukq/bNwLvQOZXyIoT0KI=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SnapscreenCoreUtil.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cknwIrq+7l2HzGZgUbuxpKX2lv6ReI/39NY1EXhkhYs=
+			i+88ItDKOphhMH6csPgClH4BtwFVIpaLqCVHMITnAUk=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SnapscreenFingerprintCalculator.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UWO0MwnuF42by1BYvZoxENLAp3mDCPlzGZzsA9mem+0=
+			XpwSCpKF+uAkouenCTEOkpuw21wdQPQr3WmxJQZrkuo=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SnapscreenQuadrangleDetector+Private.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			b5nL++NaXPW1qG1MpeWLLLqqA+fln0HEgzdqtw5UmqU=
+			QW3wK14feCLQxC3E5S8xmZ/1z5sILiVeRF4UfwAOCb8=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SnapscreenQuadrangleDetector.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NEHzgr2FUEESfMpVqpBQz8IQyOP5ROXfKasCb4zF9uc=
+			CkJbec5xC9BYJ8UN1vofSukWf6laanyxEwyZ1jMJcpI=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SnapscreenUtil.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FvkOR3LJRHyfS/ax9xmB4hEwSFAaFvVy1b05DRCeNZg=
+			YccSoS5m52UOzneexv+gMLR/Pl5H4BjHkBGSB1pTVsA=
 			</data>
 		</dict>
 		<key>processordata.zip</key>

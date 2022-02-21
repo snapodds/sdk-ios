@@ -1,8 +1,5 @@
 //
-//  SnapscreenQuadrangleDetector+Private.h
-//  SnapscreenCore
-//
-//  Created by Martin Fitzka-Reichart on 14.11.21.
+// Copyright (c) 2022 Snapscreen Application GmbH <https://snapscreen.com>
 //
 
 #ifndef SnapscreenQuadrangleDetector_Private_h

@@ -1,8 +1,5 @@
 //
-//  AppDelegate.swift
-//  Example
-//
-//  Copyright © 2021 Snapscreen Application GmbH. All rights reserved.
+// Copyright (c) 2022 Snapscreen Application GmbH <https://snapscreen.com>
 //
 
 import UIKit

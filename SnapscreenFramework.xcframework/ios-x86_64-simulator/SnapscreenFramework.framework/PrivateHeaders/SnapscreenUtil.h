@@ -1,8 +1,5 @@
 //
-//  SnapscreenUtil.h
-//  SnapscreenFramework
-//
-//  Created by Martin Fitzka-Reichart on 15.11.21.
+// Copyright (c) 2022 Snapscreen Application GmbH <https://snapscreen.com>
 //
 
 #import <Foundation/Foundation.h>
@@ -15,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SnapscreenUtil : NSObject
     
 + (UIImage* _Nullable) uiImageFromSampleBuffer: (CMSampleBufferRef) sampleBuffer orientation: (AVCaptureVideoOrientation) orientation;
+
++ (NSData* _Nullable) compressedWebpImageDataFromImageWrap: (NSObject* _Nullable) imageWrap quality: (CGFloat) quality;
+
 
 @end
 

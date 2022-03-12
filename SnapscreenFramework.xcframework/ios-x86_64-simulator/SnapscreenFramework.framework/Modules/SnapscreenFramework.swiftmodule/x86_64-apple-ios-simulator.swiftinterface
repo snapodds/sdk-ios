@@ -34,7 +34,8 @@ public enum SnapscreenEnvironment {
   }
   @objc public var country: Swift.String
   @objc public var usState: Swift.String?
-  final public let uiConfiguration: SnapscreenFramework.SnapscreenUIConfiguration
+  final public let snapUIConfiguration: SnapscreenFramework.SnapscreenSnapUIConfiguration
+  final public let oddsUIConfiguration: SnapscreenFramework.SnapscreenOddDisplayUIConfiguration
   public class func setup(withClientId clientId: Swift.String, clientSecret: Swift.String, environment: SnapscreenFramework.SnapscreenEnvironment = .production)
   @objc public class func setup(withClientId clientId: Swift.String, clientSecret: Swift.String, backendURL: Foundation.URL)
   public func getOddsForSportEvent(withId id: Swift.Int64, completion: @escaping ((SnapscreenFramework.SnapOddsResult?) -> ()))
@@ -45,6 +46,20 @@ public enum SnapscreenEnvironment {
     @objc get
   }
   @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class OddsResultsViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public init(sportEvent: SnapscreenFramework.SportEvent, tvChannel: SnapscreenFramework.TvChannel? = nil)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc deinit
+}
+extension SnapscreenFramework.OddsResultsViewController : UIKit.UITableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+}
+extension SnapscreenFramework.OddsResultsViewController : UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
 }
 public struct TvChannel : Swift.Codable {
   public var id: Swift.Int?
@@ -84,6 +99,7 @@ public struct SnapOddsResult : Swift.Codable {
   public var competitors: [SnapscreenFramework.SnapOddsCompetitor]?
   public var players: [SnapscreenFramework.SnapOddsPlayer]?
   public var sportsBooks: [SnapscreenFramework.SnapOddsSportBook]?
+  public var bestOffers: [SnapscreenFramework.SnapOddsOffer]?
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -137,6 +153,8 @@ public struct SnapOddsOutcome : Swift.Codable {
   public var type: SnapscreenFramework.SnapOddsOutcomeType? {
     get
   }
+  public var sportsBook: Swift.String?
+  public var bestOutcome: Swift.Bool?
   public var redirectURL: Foundation.URL? {
     get
   }
@@ -153,8 +171,47 @@ public enum SnapOddsOutcomeType : Swift.String {
     get
   }
 }
+@_hasMissingDesignatedInitializers public class SnapscreenOddDisplayUIConfiguration {
+  public var dismissButtonText: Swift.String?
+  public var primaryBackgroundColor: UIKit.UIColor
+  public var loadingLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
+  public var loadingActivityColor: UIKit.UIColor
+  public var errorLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
+  public var logoImage: UIKit.UIImage?
+  public var logoSize: CoreGraphics.CGSize?
+  public var sportsLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
+  public var channelAndTimeLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
+  public var competitorsHeaderBackgroundColor: UIKit.UIColor
+  public var competitorsHeaderSeparatorColor: UIKit.UIColor
+  public var competitorsHeaderLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
+  public var bestOddsHeaderSeparatorColor: UIKit.UIColor
+  public var bestOddsBackgroundColor: UIKit.UIColor
+  public var bestOddsTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
+  public var bestOddsSpreadTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
+  public var bestOddsMoneyTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
+  public var bestOddsTotalTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
+  public var bestOddsCompetitorLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
+  public var bestOddsSportsBookBackgroundColor: UIKit.UIColor
+  public var bestOddsSportsBookLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
+  public var bestOddsValueBackgroundColor: UIKit.UIColor
+  public var bestOddsValueLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
+  public var bestOddsTargetLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
+  public var bestOddsSeparatorColor: UIKit.UIColor
+  public var sportsBookLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
+  public var spreadTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
+  public var moneyTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
+  public var totalTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
+  public var competitorLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
+  public var oddValueLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
+  public var oddTargetLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
+  public var oddValueBackgroundColor: UIKit.UIColor
+  public var oddSeparatorColor: UIKit.UIColor
+  public var sportsBookSeparatorColor: UIKit.UIColor
+  @objc deinit
+}
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SnapViewController : UIKit.UIViewController {
-  @_Concurrency.MainActor(unsafe) public init(configuration: SnapscreenFramework.SnapConfiguration, snapDelegate: SnapscreenFramework.SnapscreenSnapDelegate)
+  @_Concurrency.MainActor(unsafe) public class func forSportsMedia(configuration: SnapscreenFramework.SnapConfiguration = SnapConfiguration()) -> SnapscreenFramework.SnapViewController
+  @_Concurrency.MainActor(unsafe) public class func forSportsOperator(configuration: SnapscreenFramework.SnapConfiguration = SnapConfiguration(), snapDelegate: SnapscreenFramework.SnapscreenSnapDelegate) -> SnapscreenFramework.SnapViewController
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
@@ -170,10 +227,22 @@ public enum SnapOddsOutcomeType : Swift.String {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var preferredInterfaceOrientationForPresentation: UIKit.UIInterfaceOrientation {
     @_Concurrency.MainActor(unsafe) @objc get
   }
+  @_Concurrency.MainActor(unsafe) public func continueSnapping()
   @objc deinit
 }
 extension SnapscreenFramework.SnapViewController : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
+}
+@_hasMissingDesignatedInitializers public class SnapscreenUILabelConfiguration {
+  public var textColor: UIKit.UIColor
+  public var font: UIKit.UIFont
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class SnapscreenUILabelWithTextConfiguration {
+  public var textColor: UIKit.UIColor
+  public var font: UIKit.UIFont
+  public var text: Swift.String
+  @objc deinit
 }
 public struct SportEvent : Swift.Codable {
   public var eventId: Swift.Int64
@@ -198,9 +267,9 @@ public struct SportEvent : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
 }
 public protocol SnapscreenSnapDelegate : AnyObject {
-  func snapscreenSnapViewController(_ viewController: SnapscreenFramework.SnapViewController, didSnapSportEvent sportEvent: SnapscreenFramework.SportEventSnapResultEntry) -> Swift.Bool
+  func snapscreenSnapViewController(_ viewController: SnapscreenFramework.SnapViewController, didSnapSportEvent sportEvent: SnapscreenFramework.SportEventSnapResultEntry)
 }
-@_hasMissingDesignatedInitializers public class SnapscreenUIConfiguration {
+@_hasMissingDesignatedInitializers public class SnapscreenSnapUIConfiguration {
   public var hideDefaultViewFinderAndQuadrangleDetection: Swift.Bool
   public var primaryBackgroundColor: UIKit.UIColor
   public var primaryColor: UIKit.UIColor

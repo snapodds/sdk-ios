@@ -7,8 +7,15 @@ import SnapscreenFramework
 
 class ViewController: UIViewController {
 
-    @IBAction func snap(_ sender: Any) {
-        let snapViewController = SnapViewController(configuration: SnapConfiguration(), snapDelegate: self)
+    @IBAction func startSportsMedia(_ sender: Any) {
+        let snapViewController = SnapViewController.forSportsMedia(configuration: SnapConfiguration())
+        snapViewController.isModalInPresentation = true
+        snapViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelSnap))
+        self.present(UINavigationController(rootViewController: snapViewController), animated: true, completion: nil)
+    }
+    
+    @IBAction func startSportsOperator(_ sender: Any) {
+        let snapViewController = SnapViewController.forSportsOperator(configuration: SnapConfiguration(), snapDelegate: self)
         snapViewController.isModalInPresentation = true
         snapViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelSnap))
         self.present(UINavigationController(rootViewController: snapViewController), animated: true, completion: nil)
@@ -29,15 +36,21 @@ class ViewController: UIViewController {
 
 extension ViewController: SnapscreenSnapDelegate {
     
-    func snapscreenSnapViewController(_ viewController: SnapViewController, didSnapSportEvent sportEvent: SportEventSnapResultEntry) -> Bool {
-        viewController.dismiss(animated: true, completion: nil)
-        
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Snapped Sport Event", message: "Successfully snapped sport event with id \(sportEvent.sportEvent?.eventId ?? -1) on \(sportEvent.tvChannel?.name ?? "Unknown channel")", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+    func snapscreenSnapViewController(_ viewController: SnapViewController, didSnapSportEvent sportEvent: SportEventSnapResultEntry) {
+        viewController.dismiss(animated: true) { [weak self] in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Snapped Sport Event", message: "Successfully snapped sport event with id \(sportEvent.sportEvent?.eventId ?? -1) on \(sportEvent.tvChannel?.name ?? "Unknown channel")", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                
+                if let event = sportEvent.sportEvent {
+                    alert.addAction(UIAlertAction(title: "Show Odds", style: .default, handler: { [weak self] _ in
+                        let resultsViewController = OddsResultsViewController(sportEvent: event, tvChannel: sportEvent.tvChannel)
+                        self?.present(UINavigationController(rootViewController: resultsViewController), animated: true, completion: nil)
+                    }))
+                }
+                self?.present(alert, animated: true, completion: nil)
+            }
         }
-        return true
     }
 
 }

@@ -48,6 +48,9 @@
             <a class="nav-group-name-link" href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OddsResultsViewController.html">OddsResultsViewController</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SnapConfiguration.html">SnapConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -60,10 +63,19 @@
                 <a class="nav-group-task-link" href="../Classes/SnapscreenFingerprintResult.html">SnapscreenFingerprintResult</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SnapscreenOddDisplayUIConfiguration.html">SnapscreenOddDisplayUIConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SnapscreenQuadrangle.html">SnapscreenQuadrangle</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SnapscreenUIConfiguration.html">SnapscreenUIConfiguration</a>
+                <a class="nav-group-task-link" href="../Classes/SnapscreenSnapUIConfiguration.html">SnapscreenSnapUIConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SnapscreenUILabelConfiguration.html">SnapscreenUILabelConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SnapscreenUILabelWithTextConfiguration.html">SnapscreenUILabelWithTextConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SportEventSnapResultEntry.html">SportEventSnapResultEntry</a>
@@ -153,9 +165,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:19SnapscreenFramework18SnapViewControllerC13configuration12snapDelegateAcA0C13ConfigurationC_AA0acH0_ptcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(configuration:snapDelegate:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:19SnapscreenFramework18SnapViewControllerC13configuration12snapDelegateAcA0C13ConfigurationC_AA0acH0_ptcfc">init(configuration:<wbr>snapDelegate:<wbr>)</a>
+                    <a name="/s:19SnapscreenFramework18SnapViewControllerC14forSportsMedia13configurationAcA0C13ConfigurationC_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/forSportsMedia(configuration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19SnapscreenFramework18SnapViewControllerC14forSportsMedia13configurationAcA0C13ConfigurationC_tFZ">forSportsMedia(configuration:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -163,10 +175,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Constructor for SnapViewController</p>
+                        <p>Creates and returns a new SnapViewController for Sports Media Mode. So after snapping, the OddsResultsViewController for the snapped sport event is presented.</p>
 
 <ul>
-<li>configuration the snap configuration you want to use</li>
+<li>configuration the snap configuration you want to use.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">forSportsMedia</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Classes/SnapConfiguration.html">SnapConfiguration</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/SnapConfiguration.html">SnapConfiguration</a></span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kt">SnapViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19SnapscreenFramework18SnapViewControllerC17forSportsOperator13configuration12snapDelegateAcA0C13ConfigurationC_AA0acK0_ptFZ"></a>
+                    <a name="//apple_ref/swift/Method/forSportsOperator(configuration:snapDelegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19SnapscreenFramework18SnapViewControllerC17forSportsOperator13configuration12snapDelegateAcA0C13ConfigurationC_AA0acK0_ptFZ">forSportsOperator(configuration:<wbr>snapDelegate:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates and returns a new SnapViewController for Sports Operator Mode. So after snapping, the provided SnapscreenSnapDelegate is informed about the snapped sport event and you choose how to proceed.</p>
+
+<ul>
+<li>configuration the snap configuration you want to use.</li>
 <li>snapDelegate the delegate you want to receive callbacks about snap results</li>
 </ul>
 
@@ -175,7 +218,34 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Classes/SnapConfiguration.html">SnapConfiguration</a></span><span class="p">,</span> <span class="nv">snapDelegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SnapscreenSnapDelegate.html">SnapscreenSnapDelegate</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">forSportsOperator</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Classes/SnapConfiguration.html">SnapConfiguration</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/SnapConfiguration.html">SnapConfiguration</a></span><span class="p">(),</span> <span class="nv">snapDelegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SnapscreenSnapDelegate.html">SnapscreenSnapDelegate</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">SnapViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19SnapscreenFramework18SnapViewControllerC16continueSnappingyyF"></a>
+                    <a name="//apple_ref/swift/Method/continueSnapping()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19SnapscreenFramework18SnapViewControllerC16continueSnappingyyF">continueSnapping()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Continue snapping when snapping was stopped due to sport event result being delivered to SnapscreenSnapDelegate in Sports Operator Mode.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">continueSnapping</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -190,7 +260,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://snapscreen.com" target="_blank" rel="external noopener">Snapscreen Application GmbH</a>. All rights reserved. (Last updated: 2022-02-21)</p>
+      <p>&copy; 2022 <a class="link" href="https://snapscreen.com" target="_blank" rel="external noopener">Snapscreen Application GmbH</a>. All rights reserved. (Last updated: 2022-03-12)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

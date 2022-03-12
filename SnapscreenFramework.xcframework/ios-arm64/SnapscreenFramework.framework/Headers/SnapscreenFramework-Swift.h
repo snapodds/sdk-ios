@@ -214,10 +214,44 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
 @class NSCoder;
-@class NSNumber;
 @class NSString;
 @class NSBundle;
+
+/// OddsResultsViewController offers the game odds presentation UI including all the loading and grouping logic to your application. Instantiate directly by passing the desired sport event and optional tv channel.
+/// All UI customization can be done via Snapscreen.instance?.oddsUIConfiguration
+/// It is recommended to present the OddsResultsViewController modally in a UINavigationController.
+SWIFT_CLASS("_TtC19SnapscreenFramework25OddsResultsViewController")
+@interface OddsResultsViewController : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+/// :nodoc:
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+@class UITableView;
+@class NSIndexPath;
+@class NSNumber;
+
+@interface OddsResultsViewController (SWIFT_EXTENSION(SnapscreenFramework)) <UITableViewDelegate>
+/// :nodoc:
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+/// :nodoc:
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+@class UITableViewCell;
+
+@interface OddsResultsViewController (SWIFT_EXTENSION(SnapscreenFramework)) <UITableViewDataSource>
+/// :nodoc:
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
+/// :nodoc:
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+/// :nodoc:
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
 
 /// SnapViewController offers the snapping UI including all the logic to your application. Instantiate directly by passing the desired SnapConfiguration and set an appropriate SnapscreenSnapDelegate to receive callbacks.
 /// It is recommended to present the SnapViewController modally in a UINavigationController. <em>Note</em>: Please note that you need to explicitly add a navigation item for dismissing the ViewController.
@@ -282,6 +316,8 @@ SWIFT_CLASS("_TtC19SnapscreenFramework20SnapscreenQuadrangle")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
 
 
 

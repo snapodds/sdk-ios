@@ -9,11 +9,11 @@ let package = Package(
     products: [
         .library(
             name: "Snapscreen",
-            targets: ["Snapscreen"])
+            targets: ["SnapscreenFramework"])
     ],
     targets: [
         .binaryTarget(
-            name: "Snapscreen",
+            name: "SnapscreenFramework",
             path: "SnapscreenFramework.xcframework"
         )
     ]

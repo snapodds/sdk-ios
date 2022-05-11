@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
 // swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SnapscreenFramework
 import AVFoundation
 import Combine
@@ -34,6 +34,8 @@ public enum SnapscreenEnvironment {
   }
   @objc public var country: Swift.String
   @objc public var usState: Swift.String?
+  final public let colorConfiguration: SnapscreenFramework.SnapscreenUIColorConfiguration
+  final public let fontConfiguration: SnapscreenFramework.SnapscreenUIFontConfiguration
   final public let snapUIConfiguration: SnapscreenFramework.SnapscreenSnapUIConfiguration
   final public let oddsUIConfiguration: SnapscreenFramework.SnapscreenOddDisplayUIConfiguration
   public class func setup(withClientId clientId: Swift.String, clientSecret: Swift.String, environment: SnapscreenFramework.SnapscreenEnvironment = .production)
@@ -96,16 +98,19 @@ public struct SnapOddsResult : Swift.Codable {
   public var startTime: Foundation.Date? {
     get
   }
-  public var competitors: [SnapscreenFramework.SnapOddsCompetitor]?
+  public var competitors: [SnapscreenFramework.SnapOddsCompetitor]
   public var players: [SnapscreenFramework.SnapOddsPlayer]?
   public var sportsBooks: [SnapscreenFramework.SnapOddsSportBook]?
   public var bestOffers: [SnapscreenFramework.SnapOddsOffer]?
+  public var offerTypeOrder: [SnapscreenFramework.SnapOddsOfferType] {
+    get
+  }
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
 public struct SnapOddsCompetitor : Swift.Codable {
-  public var id: Swift.Int64?
-  public var name: Swift.String?
+  public var id: Swift.Int64
+  public var name: Swift.String
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -173,40 +178,14 @@ public enum SnapOddsOutcomeType : Swift.String {
 }
 @_hasMissingDesignatedInitializers public class SnapscreenOddDisplayUIConfiguration {
   public var dismissButtonText: Swift.String?
-  public var primaryBackgroundColor: UIKit.UIColor
-  public var loadingLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
-  public var loadingActivityColor: UIKit.UIColor
-  public var errorLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
-  public var logoImage: UIKit.UIImage?
-  public var logoSize: CoreGraphics.CGSize?
-  public var sportsLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
-  public var channelAndTimeLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
-  public var competitorsHeaderBackgroundColor: UIKit.UIColor
-  public var competitorsHeaderSeparatorColor: UIKit.UIColor
-  public var competitorsHeaderLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
-  public var bestOddsHeaderSeparatorColor: UIKit.UIColor
-  public var bestOddsBackgroundColor: UIKit.UIColor
-  public var bestOddsTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
-  public var bestOddsSpreadTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
-  public var bestOddsMoneyTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
-  public var bestOddsTotalTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
-  public var bestOddsCompetitorLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
-  public var bestOddsSportsBookBackgroundColor: UIKit.UIColor
-  public var bestOddsSportsBookLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
-  public var bestOddsValueBackgroundColor: UIKit.UIColor
-  public var bestOddsValueLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
-  public var bestOddsTargetLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
-  public var bestOddsSeparatorColor: UIKit.UIColor
-  public var sportsBookLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
-  public var spreadTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
-  public var moneyTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
-  public var totalTitleLabel: SnapscreenFramework.SnapscreenUILabelWithTextConfiguration
-  public var competitorLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
-  public var oddValueLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
-  public var oddTargetLabel: SnapscreenFramework.SnapscreenUILabelConfiguration
-  public var oddValueBackgroundColor: UIKit.UIColor
-  public var oddSeparatorColor: UIKit.UIColor
-  public var sportsBookSeparatorColor: UIKit.UIColor
+  public var title: Swift.String
+  public var loadingText: Swift.String
+  public var errorText: Swift.String
+  public var tryAgainText: Swift.String
+  public var moneyTitle: Swift.String
+  public var spreadTitle: Swift.String
+  public var totalTitle: Swift.String
+  public var bestOddsTitle: Swift.String
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SnapViewController : UIKit.UIViewController {
@@ -233,17 +212,6 @@ public enum SnapOddsOutcomeType : Swift.String {
 extension SnapscreenFramework.SnapViewController : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
 }
-@_hasMissingDesignatedInitializers public class SnapscreenUILabelConfiguration {
-  public var textColor: UIKit.UIColor
-  public var font: UIKit.UIFont
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class SnapscreenUILabelWithTextConfiguration {
-  public var textColor: UIKit.UIColor
-  public var font: UIKit.UIFont
-  public var text: Swift.String
-  @objc deinit
-}
 public struct SportEvent : Swift.Codable {
   public var eventId: Swift.Int64
   public var externalId: Swift.String?
@@ -257,6 +225,7 @@ public struct SportEvent : Swift.Codable {
   public var category: Swift.String?
   public var sport: Swift.String?
   public var tournament: Swift.String?
+  public var league: Swift.String?
   public var dataProviderCode: Swift.String?
   public var dataProviderMatchId: Swift.String?
   public var competitors: [SnapscreenFramework.SportEventCompetitor]?
@@ -271,18 +240,11 @@ public protocol SnapscreenSnapDelegate : AnyObject {
 }
 @_hasMissingDesignatedInitializers public class SnapscreenSnapUIConfiguration {
   public var hideDefaultViewFinderAndQuadrangleDetection: Swift.Bool
-  public var primaryBackgroundColor: UIKit.UIColor
-  public var primaryColor: UIKit.UIColor
-  public var primaryHighlightedColor: UIKit.UIColor
-  public var primaryDisabledColor: UIKit.UIColor
   public var snapHintText: Swift.String
-  public var snapHintTextColor: UIKit.UIColor
   public var snapProgressText: Swift.String
-  public var snapProgressTextColor: UIKit.UIColor
   public var snapErrorGeneralText: Swift.String
   public var snapErrorConnectionIssueText: Swift.String
   public var snapErrorNoResultsText: Swift.String
-  public var snapErrorTextColor: UIKit.UIColor
   @objc deinit
 }
 public struct SportEventCompetitor : Swift.Codable {
@@ -298,8 +260,30 @@ public class SnapConfiguration {
   public init()
   @objc deinit
 }
+@_hasMissingDesignatedInitializers public class SnapscreenUIColorConfiguration {
+  public var textPrimary: UIKit.UIColor
+  public var textAccent: UIKit.UIColor
+  public var backgroundWhite: UIKit.UIColor
+  public var background: UIKit.UIColor
+  public var backgroundMuted: UIKit.UIColor
+  public var border: UIKit.UIColor
+  public var backgroundAccent: UIKit.UIColor
+  public var backgroundAccentShade: UIKit.UIColor
+  public var error: UIKit.UIColor
+  public var errorShade: UIKit.UIColor
+  @objc deinit
+}
 @objc public class SnapscreenFingerprintResult : ObjectiveC.NSObject {
   @objc public init(fingerprintData: Foundation.Data?, preprocessedImageData: Foundation.Data?, preprocessedImageWidth: Swift.Int, preprocessedImageHeight: Swift.Int, preprocessedImageChannels: Swift.Int, quadrangle: SnapscreenFramework.SnapscreenQuadrangle?, timestamp: Swift.Int64)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class SnapscreenUIFontConfiguration {
+  public var base: UIKit.UIFont
+  public var baseBold: UIKit.UIFont
+  public var large: UIKit.UIFont
+  public var small: UIKit.UIFont
+  public var tiny: UIKit.UIFont
+  public var appTitle: UIKit.UIFont
   @objc deinit
 }
 extension SnapscreenFramework.SnapscreenEnvironment : Swift.Equatable {}

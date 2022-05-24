@@ -186,6 +186,7 @@ public enum SnapOddsOutcomeType : Swift.String {
   public var spreadTitle: Swift.String
   public var totalTitle: Swift.String
   public var bestOddsTitle: Swift.String
+  public var hidePoweredBySnapOddsBranding: Swift.Bool
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SnapViewController : UIKit.UIViewController {
@@ -245,6 +246,7 @@ public protocol SnapscreenSnapDelegate : AnyObject {
   public var snapErrorGeneralText: Swift.String
   public var snapErrorConnectionIssueText: Swift.String
   public var snapErrorNoResultsText: Swift.String
+  public var hidePoweredBySnapOddsBranding: Swift.Bool
   @objc deinit
 }
 public struct SportEventCompetitor : Swift.Codable {

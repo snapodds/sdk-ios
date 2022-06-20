@@ -245,6 +245,7 @@ public protocol SnapscreenSnapDelegate : AnyObject {
   public var snapProgressText: Swift.String
   public var snapErrorGeneralText: Swift.String
   public var snapErrorConnectionIssueText: Swift.String
+  public var snapErrorTechnicalIssueText: Swift.String
   public var snapErrorNoResultsText: Swift.String
   public var hidePoweredBySnapOddsBranding: Swift.Bool
   @objc deinit

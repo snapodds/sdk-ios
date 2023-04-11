@@ -21,6 +21,6 @@ framework module SnapscreenFramework {
 }
 
 module SnapscreenFramework.Swift {
-    header "SnapscreenFramework-Swift.h"
-    requires objc
+  header "SnapscreenFramework-Swift.h"
+  requires objc
 }

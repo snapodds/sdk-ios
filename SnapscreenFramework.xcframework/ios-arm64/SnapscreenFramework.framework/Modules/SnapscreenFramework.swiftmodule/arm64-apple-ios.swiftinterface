@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
 // swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SnapscreenFramework
+// swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import Combine
 import CoreMedia
@@ -9,13 +10,15 @@ import Foundation
 import SnapscreenFramework.SnapscreenFramework_Private
 import Swift
 import UIKit
+import WebKit
 import _Concurrency
+import _StringProcessing
 @objc public class SnapscreenQuadrangle : ObjectiveC.NSObject {
-  @objc final public let point1: CoreGraphics.CGPoint
-  @objc final public let point2: CoreGraphics.CGPoint
-  @objc final public let point3: CoreGraphics.CGPoint
-  @objc final public let point4: CoreGraphics.CGPoint
-  @objc public init(point1: CoreGraphics.CGPoint, point2: CoreGraphics.CGPoint, point3: CoreGraphics.CGPoint, point4: CoreGraphics.CGPoint)
+  @objc final public let point1: CoreFoundation.CGPoint
+  @objc final public let point2: CoreFoundation.CGPoint
+  @objc final public let point3: CoreFoundation.CGPoint
+  @objc final public let point4: CoreFoundation.CGPoint
+  @objc public init(point1: CoreFoundation.CGPoint, point2: CoreFoundation.CGPoint, point3: CoreFoundation.CGPoint, point4: CoreFoundation.CGPoint)
   @objc deinit
 }
 public enum SnapscreenEnvironment {
@@ -38,6 +41,10 @@ public enum SnapscreenEnvironment {
   final public let fontConfiguration: SnapscreenFramework.SnapscreenUIFontConfiguration
   final public let snapUIConfiguration: SnapscreenFramework.SnapscreenSnapUIConfiguration
   final public let oddsUIConfiguration: SnapscreenFramework.SnapscreenOddDisplayUIConfiguration
+  weak public var liveEventsStatusChangeDelegate: SnapscreenFramework.SnapscreenLiveEventsStatusChangeDelegate? {
+    get
+    set
+  }
   public class func setup(withClientId clientId: Swift.String, clientSecret: Swift.String, environment: SnapscreenFramework.SnapscreenEnvironment = .production)
   @objc public class func setup(withClientId clientId: Swift.String, clientSecret: Swift.String, backendURL: Foundation.URL)
   public func getOddsForSportEvent(withId id: Swift.Int64, completion: @escaping ((SnapscreenFramework.SnapOddsResult?) -> ()))
@@ -60,7 +67,7 @@ extension SnapscreenFramework.OddsResultsViewController : UIKit.UITableViewDataS
   @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
 }
 extension SnapscreenFramework.OddsResultsViewController : UIKit.UITableViewDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGFloat
   @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
 }
 public struct TvChannel : Swift.Codable {
@@ -193,22 +200,24 @@ public enum SnapOddsOutcomeType : Swift.String {
   @_Concurrency.MainActor(unsafe) public class func forSportsMedia(configuration: SnapscreenFramework.SnapConfiguration = SnapConfiguration()) -> SnapscreenFramework.SnapViewController
   @_Concurrency.MainActor(unsafe) public class func forSportsOperator(configuration: SnapscreenFramework.SnapConfiguration = SnapConfiguration(), snapDelegate: SnapscreenFramework.SnapscreenSnapDelegate) -> SnapscreenFramework.SnapViewController
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc deinit
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func snapViewDidAppear()
+  @_Concurrency.MainActor(unsafe) public func snapViewWillDisappear()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillLayoutSubviews()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLayoutSubviews()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
-    @_Concurrency.MainActor(unsafe) @objc get
+    @objc get
   }
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var shouldAutorotate: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
+    @objc get
   }
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var preferredInterfaceOrientationForPresentation: UIKit.UIInterfaceOrientation {
-    @_Concurrency.MainActor(unsafe) @objc get
+    @objc get
   }
   @_Concurrency.MainActor(unsafe) public func continueSnapping()
-  @objc deinit
 }
 extension SnapscreenFramework.SnapViewController : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
@@ -236,12 +245,18 @@ public struct SportEvent : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
+public protocol SnapscreenLiveEventsStatusChangeDelegate : AnyObject {
+  func snapscreenLiveEventsStatusDidChange(isLive: Swift.Bool)
+}
 public protocol SnapscreenSnapDelegate : AnyObject {
   func snapscreenSnapViewController(_ viewController: SnapscreenFramework.SnapViewController, didSnapSportEvent sportEvent: SnapscreenFramework.SportEventSnapResultEntry)
 }
 @_hasMissingDesignatedInitializers public class SnapscreenSnapUIConfiguration {
   public var hideDefaultViewFinderAndQuadrangleDetection: Swift.Bool
+  public var snapTitle: Swift.String?
   public var snapHintText: Swift.String
+  public var showHelpButtonText: Swift.String
+  public var helpTitle: Swift.String
   public var snapProgressText: Swift.String
   public var snapErrorGeneralText: Swift.String
   public var snapErrorConnectionIssueText: Swift.String

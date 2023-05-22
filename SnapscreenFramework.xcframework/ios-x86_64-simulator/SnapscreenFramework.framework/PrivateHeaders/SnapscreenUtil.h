@@ -13,8 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
     
 + (UIImage* _Nullable) uiImageFromSampleBuffer: (CMSampleBufferRef) sampleBuffer orientation: (AVCaptureVideoOrientation) orientation;
 
-+ (NSData* _Nullable) compressedWebpImageDataFromImageWrap: (NSObject* _Nullable) imageWrap quality: (CGFloat) quality;
-
 
 @end
 

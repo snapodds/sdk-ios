@@ -15,10 +15,6 @@
 
 #ifdef __cplusplus
 
-+ (NSData *) compressedWebpImageDataFromImage:(const snapscreenwrap::ImageView &)image
-                                      quality:(float)quality
-                                     lossless:(BOOL)lossless;
-
 + (NSData *) compressedJpegImageDataFromImage:(const snapscreenwrap::ImageView &)image
                                       quality:(float)quality;
 
